@@ -37,6 +37,21 @@ const deleteAll = async function() {
 
 }
 
+const insertArr = async function(data) {
+  try {
+    const entries = await Recipe.insertMany(data)
+    console.log("Array inserted, check MongoDB Compass")
+    const response = data.map(obj => {
+      return obj.title})
+    
+    console.log(response, "all the recepies above have been updated to MongoDB")
+    
+    } catch (err){
+    console.log(err)
+  }
+
+}
+
 const addRecipe = async function(title, level, ingredients, cuisine, dishType,img, duration, creator, created) {
   try {
     const recipe = await Recipe.create({ 
@@ -69,5 +84,8 @@ const connectMongoose = async function() {
 } 
 
 connectMongoose()
+
 //deleteAll()
-addRecipe("Pumpkin-Soup", "Easy Peasy", ["Pumpkin", "Cream", "Salt", "Herbs"], "german", "soup","https://www.gaumenfreundin.de/wp-content/uploads/2020/10/Kuerbissuppe-rezeptfoto.jpg", 20, "Ivana")
+//addRecipe("Pumpkin-Soup", "Easy Peasy", ["Pumpkin", "Cream", "Salt", "Herbs"], "german", "soup","https://www.gaumenfreundin.de/wp-content/uploads/2020/10/Kuerbissuppe-rezeptfoto.jpg", 20, "Ivana")
+
+insertArr(data)
