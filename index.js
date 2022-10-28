@@ -36,6 +36,15 @@ const deleteAll = async function() {
   }
 
 }
+const deleteOne = async function(condition) {
+  try {
+    const emptyOne = await Recipe.deleteOne(condition)
+    console.log("Recipe deleted")
+  } catch (err){
+    console.log(err)
+  }
+
+}
 
 const findUpdate = async function(condition, entryChange) {
   try {
@@ -98,4 +107,5 @@ connectMongoose()
 //deleteAll()
 //addRecipe("Pumpkin-Soup", "Easy Peasy", ["Pumpkin", "Cream", "Salt", "Herbs"], "german", "soup","https://www.gaumenfreundin.de/wp-content/uploads/2020/10/Kuerbissuppe-rezeptfoto.jpg", 20, "Ivana")
 //insertArr(data)
-findUpdate({title: "Rigatoni alla Genovese"}, {duration: 100})
+//findUpdate({title: "Rigatoni alla Genovese"}, {duration: 100})
+deleteOne({title: "Carrot Cake"})
