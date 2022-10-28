@@ -26,9 +26,14 @@ const recipeSchema = new Schema({
       default: new Date()
     },
 
-
 });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
 
 module.exports = Recipe;
+
+
+
+/* Example Recipe:
+
+"Pumpkin-Soup", "Easy Peasy", ["Pumpkin", "Cream", "Salt", "Herbs"], "german", "soup","https://www.gaumenfreundin.de/wp-content/uploads/2020/10/Kuerbissuppe-rezeptfoto.jpg", 20, "Ivana" */
